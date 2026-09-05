@@ -13,10 +13,9 @@ main_bp = Blueprint(
     static_folder="../static",
 )
 
-KOBO_TOKEN = os.getenv(
-    "KOBO_API_TOKEN", "34509a89a4e14bf5daf8470e516fe583081274d1"
-)
-FORM_ID = os.getenv("KOBO_FORM_ID", "aceiLDEHJaBYgqMeUoBQP9")
+
+KOBO_TOKEN = os.getenv("KOBO_API_TOKEN")
+FORM_ID = os.getenv("KOBO_FORM_ID")
 
 
 def fetch_displaced_families_data():
