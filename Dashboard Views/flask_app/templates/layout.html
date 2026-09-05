@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaza Relief AI System</title>
+    <!-- خط Tajawal -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap RTL & FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar-landing border-bottom sticky-top shadow-sm">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="brand-logo d-flex align-items-center gap-2 text-decoration-none" href="/">
+                <img src="/static/images/logo.png" alt="Gaza Relief AI Logo" class="brand-logo-img">
+                <div class="brand-text">
+                    <span class="fw-bold fs-5 text-dark">Gaza Relief <span class="brand-accent">AI</span></span>
+                </div>
+            </a>
+            
+            <nav class="d-flex align-items-center gap-3">
+                <a href="/" class="nav-link-item active">الرئيسية</a>
+                <a href="/resume" class="btn-data-view">
+                    <i class="fa-solid fa-database me-1"></i> السجل الشامل للبيانات
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="landing-footer pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <img src="/static/images/logo.png" alt="Logo" class="footer-logo-img">
+                        <h5 class="fw-bold mb-0 text-white">Gaza Relief AI System</h5>
+                    </div>
+                    <p class="footer-desc">
+                        منظومة إغاثية ذكية مدعومة بوكلاء الذكاء الاصطناعي (SPOCS AI Agents) ترتبط مباشرة ببيانات KoboToolbox الميدانية لرصد وتحليل احتياجات الأسر النازحة والمتضررة في قطاع غزة، وتسريع اتخاذ القرار الإغاثي بشفافية ودقة عالية.
+                    </p>
+                </div>
+                <div class="col-lg-3 offset-lg-1">
+                    <h6 class="fw-bold text-white mb-3"><i class="fa-solid fa-link brand-accent me-2"></i>روابط سريعة</h6>
+                    <ul class="list-unstyled footer-links">
+                        <li><a href="/"><i class="fa-solid fa-angle-left me-2"></i>الرئيسية والمؤشرات</a></li>
+                        <li><a href="/resume"><i class="fa-solid fa-angle-left me-2"></i>جدول السجلات الميدانية</a></li>
+                        <li><a href="#about"><i class="fa-solid fa-angle-left me-2"></i>عن المنظومة الذكية</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h6 class="fw-bold text-white mb-3"><i class="fa-solid fa-headset brand-accent me-2"></i>التواصل والدعم الميداني</h6>
+                    <div class="contact-card p-3 rounded-3">
+                        <div class="d-flex align-items-center gap-2 mb-2 text-light">
+                            <i class="fa-solid fa-phone text-success fs-5"></i>
+                            <span dir="ltr" class="fw-bold fs-6">0592838096</span>
+                        </div>
+                        <div class="d-flex align-items-center gap-2 text-light fs-7">
+                            <i class="fa-solid fa-envelope brand-accent"></i>
+                            <span>samahmansour97@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-secondary my-4 opacity-25">
+            <div class="text-center text-muted fs-7">
+                جميع الحقوق محفوظة © 2026 - نظام Gaza Relief AI لإدارة وتنسيق الإغاثة الميدانية.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Swiper Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,274 @@
+:root {
+    --brand-blue: #1d4ed8;       /* الأزرق المأخوذ من خيمة الشعار */
+    --brand-green: #16a34a;      /* الأخضر الزيتوني المأخوذ من الورقة */
+    --brand-red: #dc2626;        /* الأحمر المأخوذ من نقطة الشبكة الذكية */
+    --brand-dark: #0f172a;       /* الكحلي الليلي للهيدر والفوتر */
+    --bg-light: #f8fafc;         /* الخلفية المريحة والرايقة */
+}
+
+body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: var(--bg-light);
+    color: #334155;
+    direction: rtl;
+}
+
+/* Navbar & Brand Logo */
+.navbar-landing {
+    background-color: #ffffff;
+    padding: 10px 0;
+}
+
+.brand-logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.footer-logo-img {
+    height: 50px;
+    width: auto;
+    filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.brand-accent {
+    color: var(--brand-blue);
+}
+
+.nav-link-item {
+    color: #475569;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 14px;
+    transition: color 0.2s;
+}
+
+.nav-link-item:hover, .nav-link-item.active {
+    color: var(--brand-blue);
+}
+
+.btn-data-view {
+    background: linear-gradient(135deg, var(--brand-blue), #2563eb);
+    color: #ffffff;
+    padding: 9px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    transition: all 0.3s ease;
+}
+
+.btn-data-view:hover {
+    background: linear-gradient(135deg, #1e40af, var(--brand-blue));
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(37, 99, 235, 0.35);
+}
+
+/* Hero Slider */
+.hero-slider-section {
+    position: relative;
+    width: 100%;
+    height: 480px;
+}
+
+.heroSwiper, .swiper-slide {
+    height: 100%;
+}
+
+.swiper-slide {
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-caption {
+    max-width: 650px;
+}
+
+.fw-extrabold { font-weight: 800; }
+
+/* Visual Stat Cards */
+.stat-image-card {
+    position: relative;
+    height: 220px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.stat-image-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(15, 23, 42, 0.12);
+}
+
+.card-bg-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.card-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 25%, rgba(15, 23, 42, 0.35));
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 22px;
+}
+
+.icon-circle {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(4px);
+}
+
+.stat-title {
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.stat-value {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin: 0;
+}
+
+/* About Section & Custom Badges */
+.about-section {
+    position: relative;
+    background-color: #ffffff;
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    left: -20px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--brand-blue), #1e3a8a) !important;
+}
+
+/* Footer Design */
+.landing-footer {
+    background-color: var(--brand-dark);
+    color: #94a3b8;
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: #cbd5e1;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+}
+
+.footer-links a:hover {
+    color: #ffffff;
+    transform: translateX(-4px);
+}
+
+.contact-card {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* =========================================================
+   التنسيقات المضافة لصفحة السجل الشامل (Resume Page)
+   ========================================================= */
+
+/* ألوان الأوسمة والبطاقات الهادئة */
+.bg-primary-soft { background-color: rgba(37, 99, 235, 0.1); }
+.bg-success-soft { background-color: rgba(22, 163, 74, 0.12); }
+.bg-warning-soft { background-color: rgba(217, 119, 6, 0.12); }
+.bg-info-soft { background-color: rgba(6, 182, 212, 0.12); }
+.bg-danger-soft { background-color: rgba(220, 38, 38, 0.12); }
+.bg-secondary-soft { background-color: rgba(100, 116, 139, 0.12); }
+
+.text-warning-dark { color: #b45309; }
+
+/* شريط البحث المطور */
+.search-box-custom {
+    position: relative;
+    min-width: 320px;
+}
+
+.search-box-custom .search-icon {
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+.search-box-custom input {
+    padding-right: 45px !important;
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    font-size: 0.88rem;
+    transition: all 0.2s ease;
+}
+
+.search-box-custom input:focus {
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    border-color: var(--brand-blue);
+}
+
+/* تنسيق الجدول والصفوف */
+.custom-table th {
+    font-weight: 700;
+    color: #475569;
+    font-size: 0.88rem;
+    padding: 14px 16px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.custom-table td {
+    padding: 14px 16px;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* شارات البيانات والرقم القومي */
+.code-badge {
+    font-family: monospace;
+    letter-spacing: 0.5px;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.location-badge {
+    background-color: #f8fafc;
+    padding: 5px 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #334155;
+}
