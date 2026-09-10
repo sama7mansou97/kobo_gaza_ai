@@ -1,27 +1,33 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<!-- 1. سلايدر صور كبير وتفاعلي (Swiper Slider) -->
+<!-- 1. سلايدر الصور التفاعلي (Swiper Slider) -->
 <section class="hero-slider-section">
     <div class="swiper heroSwiper">
         <div class="swiper-wrapper">
-            <!-- الشريحة الأولى: العلم الفلسطيني على الركام -->
+            <!-- الشريحة الأولى -->
             <div class="swiper-slide hero-slide-1">
                 <div class="container h-100 d-flex align-items-end pb-5">
                     <div class="hero-caption">
-                        <span class="badge bg-danger rounded-pill px-3 py-2 mb-3"><i class="fa-solid fa-bolt me-1"></i> استجابة ميدانية حية</span>
-                        <h1 class="display-5 fw-extrabold text-white mb-2">منظومة الإغاثة والاستجابة الطارئة - غزة</h1>
-                        <p class="lead text-light opacity-90">توظيف الذكاء الاصطناعي وبنوك البيانات الميدانية لتغطية الاحتياجات الأساسية للنازحين.</p>
+                        <span class="badge bg-danger rounded-pill px-3 py-2 mb-3">
+                            <i class="fa-solid fa-bolt me-1"></i> 
+                            <span data-i18n="hero_badge_live">استجابة ميدانية حية</span>
+                        </span>
+                        <h1 class="display-5 fw-extrabold text-white mb-2" data-i18n="hero_title_1">منظومة الإغاثة والاستجابة الطارئة - غزة</h1>
+                        <p class="lead text-light opacity-90" data-i18n="hero_desc_1">توظيف الذكاء الاصطناعي وبنوك البيانات الميدانية لتغطية الاحتياجات الأساسية للنازحين.</p>
                     </div>
                 </div>
             </div>
-            <!-- الشريحة الثانية: الرجل الواقف وسط الدمار -->
+            <!-- الشريحة الثانية -->
             <div class="swiper-slide hero-slide-2">
                 <div class="container h-100 d-flex align-items-end pb-5">
                     <div class="hero-caption">
-                        <span class="badge bg-primary rounded-pill px-3 py-2 mb-3"><i class="fa-solid fa-shield-halved me-1"></i> إدارة مراكز الإيواء والمخيمات</span>
-                        <h1 class="display-5 fw-extrabold text-white mb-2">دقة البيانات وضمان عدالة التوزيع</h1>
-                        <p class="lead text-light opacity-90">قراءة متزامنة لكافة السجلات الميدانية لمتابعة الأسر الأكثر هشاشة واحتياجاً.</p>
+                        <span class="badge bg-primary rounded-pill px-3 py-2 mb-3">
+                            <i class="fa-solid fa-shield-halved me-1"></i> 
+                            <span data-i18n="hero_badge_camps">إدارة مراكز الإيواء والمخيمات</span>
+                        </span>
+                        <h1 class="display-5 fw-extrabold text-white mb-2" data-i18n="hero_title_2">دقة البيانات وضمان عدالة التوزيع</h1>
+                        <p class="lead text-light opacity-90" data-i18n="hero_desc_2">قراءة متزامنة لكافة السجلات الميدانية لمتابعة الأسر الأكثر هشاشة واحتياجاً.</p>
                     </div>
                 </div>
             </div>
@@ -32,7 +38,6 @@
     </div>
 </section>
 
-<!-- تنسيقات خلفيات الشرائح بالنظام المباشر لضمان عدم وجود أخطاء Syntax -->
 <style>
     .hero-slide-1 {
         background-image: linear-gradient(to top, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.3)), url("{{ url_for('static', filename='images/flag.jpg') }}");
@@ -42,16 +47,14 @@
     }
 </style>
 
-
-<!-- 2. قسم بطاقات الإحصائيات العامة (Visual Visual Cards) -->
+<!-- 2. بطاقات الإحصائيات العامة -->
 <section class="container my-5">
     <div class="text-center mb-4">
-        <h3 class="fw-bold text-dark mb-1">المؤشرات العامة للاستجابة</h3>
-        <p class="text-muted fs-6">قراءة وإحصائيات عامة ومباشرة لحالات الأسر المسجلة في القطاع</p>
+        <h3 class="fw-bold text-dark mb-1" data-i18n="stats_section_title">المؤشرات العامة للاستجابة</h3>
+        <p class="text-muted fs-6" data-i18n="stats_section_desc">قراءة وإحصائيات عامة ومباشرة لحالات الأسر المسجلة في القطاع</p>
     </div>
 
     <div class="row g-4">
-        <!-- إجمالي العائلات (صورة الدمار والنزوح) -->
         <div class="col-lg-3 col-md-6">
             <div class="stat-image-card">
                 <div class="card-bg-img" style="background-image: url('/static/images/q1.jpg');"></div>
@@ -59,13 +62,12 @@
                     <div class="icon-circle bg-danger text-white mb-2">
                         <i class="fa-solid fa-users fs-4"></i>
                     </div>
-                    <span class="stat-title">إجمالي العائلات المتضررة</span>
+                    <span class="stat-title" data-i18n="stat_total_affected">إجمالي العائلات المتضررة</span>
                     <h2 class="stat-value text-white">{{ stats.total }}</h2>
                 </div>
             </div>
         </div>
 
-        <!-- عائلات المخيمات (صورة الخيام والمخيمات) -->
         <div class="col-lg-3 col-md-6">
             <div class="stat-image-card">
                 <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1510312305653-8ed496efae75?q=80&w=800&auto=format&fit=crop');"></div>
@@ -73,13 +75,12 @@
                     <div class="icon-circle bg-success text-white mb-2">
                         <i class="fa-solid fa-campground fs-4"></i>
                     </div>
-                    <span class="stat-title">عائلات المخيمات والخيام</span>
+                    <span class="stat-title" data-i18n="stat_camps_families">عائلات المخيمات والخيام</span>
                     <h2 class="stat-value text-white">{{ stats.camps }}</h2>
                 </div>
             </div>
         </div>
 
-        <!-- مراكز الإيواء والمدارس (صورة المدارس والمباني الإغاثية) -->
         <div class="col-lg-3 col-md-6">
             <div class="stat-image-card">
                 <div class="card-bg-img" style="background-image: url('https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?q=80&w=800&auto=format&fit=crop');"></div>
@@ -87,106 +88,101 @@
                     <div class="icon-circle bg-warning text-dark mb-2">
                         <i class="fa-solid fa-school fs-4"></i>
                     </div>
-                    <span class="stat-title">مراكز الإيواء والمدارس</span>
+                    <span class="stat-title" data-i18n="stat_shelters_schools">مراكز الإيواء والمدارس</span>
                     <h2 class="stat-value text-white">{{ stats.shelters }}</h2>
                 </div>
             </div>
         </div>
 
-<!-- سكن آخر / متفرقات -->
-<div class="col-lg-3 col-md-6">
-    <div class="stat-image-card">
-<div class="card-bg-img" style="background-image: url('/static/images/q4.jpg');"></div>
-        <div class="card-overlay">
-            <div class="icon-circle bg-warning text-dark mb-2">
-                <i class="fa-solid fa-school fs-4"></i>
-            </div>
-            <span class="stat-title">سكن آخر / استضافة</span>
-            <h2 class="stat-value text-white">{{ stats.shelters }}</h2>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-<!-- 3. قسم التعريف بالنظام (About Gaza Relief AI System) -->
-<section id="about" class="about-section py-5 my-5 bg-white border-top border-bottom" dir="rtl">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-5 text-center">
-                <!-- عرض الشعار بشكل مفرغ، كبير، وراقي بدون إطارات أو شارات مزعجة -->
-                <div class="p-3 text-center">
-                    <img src="/static/images/logo.png" class="img-fluid drop-shadow" style="max-height: 280px; filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.08));" alt="Gaza Relief AI Logo">
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <span class="text-primary fw-bold text-uppercase tracking-wider">عن المنظومة الذكية</span>
-                <h2 class="display-6 fw-bold text-dark mt-2 mb-3">Gaza Relief AI System</h2>
-                <p class="text-secondary leading-relaxed">
-                    منظومة برمجية متكاملة مدعومة بتقنيات الذكاء الاصطناعي، تُعنى بتحليل البيانات الميدانية اللحظية للأسر النازحة والمتضررة في قطاع غزة. يرتبط النظام مباشرة ببيانات <strong>KoboToolbox</strong> الميدانية لتقديم قراءات دقيقة، تحديد الأولويات الإغاثية، وتسريع اتخاذ القرار للمؤسسات والفرق الميدانية في مناطق النزوح والمخيمات ومراكز الإيواء.
-                </p>
-                
-                <div class="row g-3 mt-3">
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
-                            <span class="fw-bold text-dark">ربط حي ومباشر مع Kobo API</span>
-                        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="stat-image-card">
+                <div class="card-bg-img" style="background-image: url('/static/images/q4.jpg');"></div>
+                <div class="card-overlay">
+                    <div class="icon-circle bg-warning text-dark mb-2">
+                        <i class="fa-solid fa-house fs-4"></i>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
-                            <span class="fw-bold text-dark">تحليل وتصنيف جغرافي وميداني دقيق</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
-                            <span class="fw-bold text-dark">تعريب وتوحيد المسميات تلقائياً</span>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
-                            <span class="fw-bold text-dark">مساعد تفاعلي لاتخاذ القرارات الإغاثية</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="mt-4 pt-2">
-                    <a href="/resume" class="btn btn-primary btn-lg rounded-pill px-4 me-2">
-                        <i class="fa-solid fa-table me-2"></i> الانتقال إلى جدول السجلات
-                    </a>
+                    <span class="stat-title" data-i18n="stat_other_hosting">سكن آخر / استضافة</span>
+                    <h2 class="stat-value text-white">{{ stats.other }}</h2>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
+<!-- 3. قسم التعريف بالنظام -->
+<section id="about" class="about-section py-5 my-5 bg-white border-top border-bottom">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-5 text-center">
+                <div class="p-3 text-center">
+                    <img src="/static/images/logo.png" class="img-fluid drop-shadow" style="max-height: 280px;" alt="Gaza Relief AI Logo">
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <span class="text-primary fw-bold text-uppercase tracking-wider" data-i18n="about_tag">عن المنظومة الذكية</span>
+                <h2 class="display-6 fw-bold text-dark mt-2 mb-3" data-i18n="about_title">Gaza Relief AI System</h2>
+                <p class="text-secondary leading-relaxed" data-i18n="about_desc">
+                    منظومة برمجية متكاملة مدعومة بتقنيات الذكاء الاصطناعي، تُعنى بتحليل البيانات الميدانية اللحظية للأسر النازحة والمتضررة في قطاع غزة.
+                </p>
 
+                <div class="row g-3 mt-3">
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
+                            <span class="fw-bold text-dark" data-i18n="about_feat_1">ربط حي ومباشر مع Kobo API</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
+                            <span class="fw-bold text-dark" data-i18n="about_feat_2">تحليل وتصنيف جغرافي وميداني دقيق</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
+                            <span class="fw-bold text-dark" data-i18n="about_feat_3">تعريب وتوحيد المسميات تلقائياً</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-success fs-5"></i>
+                            <span class="fw-bold text-dark" data-i18n="about_feat_4">مساعد تفاعلي لاتخاذ القرارات الإغاثية</span>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="mt-4 pt-2">
+                    <a href="/resume" class="btn btn-primary btn-lg rounded-pill px-4 me-2">
+                        <i class="fa-solid fa-table me-2"></i> <span data-i18n="btn_go_records">الانتقال إلى جدول السجلات</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}
 <script>
-    // تهيئة السلايدر التفاعلي
-    const swiper = new Swiper('.heroSwiper', {
-        loop: true,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.heroSwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 4500,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+        }
     });
 </script>
 {% endblock %}

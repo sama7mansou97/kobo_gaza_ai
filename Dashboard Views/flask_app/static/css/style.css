@@ -201,22 +201,42 @@ body {
 
 .text-warning-dark { color: #b45309; }
 
-/* شريط البحث المطور */
+/* شريط البحث المطور - مراعاة الاتجاهين RTL و LTR */
 .search-box-custom {
     position: relative;
     min-width: 320px;
 }
 
-.search-box-custom .search-icon {
+html[dir="rtl"] .search-box-custom .search-icon {
     position: absolute;
     top: 50%;
     right: 18px;
+    left: auto;
     transform: translateY(-50%);
     z-index: 5;
 }
 
-.search-box-custom input {
+html[dir="rtl"] .search-box-custom input {
     padding-right: 45px !important;
+    padding-left: 15px !important;
+}
+
+html[dir="ltr"] .search-box-custom .search-icon {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    right: auto;
+    transform: translateY(-50%);
+    z-index: 5;
+}
+
+html[dir="ltr"] .search-box-custom input {
+    padding-left: 45px !important;
+    padding-right: 15px !important;
+    text-align: left;
+}
+
+.search-box-custom input {
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
     font-size: 0.88rem;
@@ -227,6 +247,31 @@ body {
     background-color: #ffffff;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
     border-color: var(--brand-blue);
+}
+
+/* تنسيق نموذج الدردشة المباشرة (Chat Input & Send Button) */
+#inline-chat-form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+/* في حالة اللغة الإنجليزية LTR: وضع حقل الإدخال جهة اليسار والزر جهة اليمين */
+html[dir="ltr"] #inline-chat-form {
+    flex-direction: row-reverse;
+}
+
+html[dir="ltr"] #inline-chat-form input {
+    text-align: left;
+}
+
+/* في حالة اللغة العربية RTL: الوضع الطبيعي */
+html[dir="rtl"] #inline-chat-form {
+    flex-direction: row;
+}
+
+html[dir="rtl"] #inline-chat-form input {
+    text-align: right;
 }
 
 /* تنسيق الجدول والصفوف */

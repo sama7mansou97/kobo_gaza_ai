@@ -141,3 +141,92 @@ MedicalExpert
 كم عدد مرضي الضغط والسكري وما هي الأدوية المطلوبة لهم
 
 ما هي أبرز احتياجات الأسر المتواجدة في المدارس ومراكز الإيواء
+
+أسئلة خبير الصحة والأدوية (MedicalExpert)
+
+"ما هي أكثر الأدوية والعلاجات المطلوبة من النازحين؟"
+
+What are the most requested medicines and medical treatments by IDPs?
+
+"كم عدد العائلات التي تحتاج إلى أدوية أمراض مزمنة؟"
+
+How many families require medications for chronic illnesses?
+
+"اعرض لي الحالات التي تحتاج أدوية ورعاية طبية عاجلة."
+
+Show me the cases requiring urgent medical care and medications.
+
+"كم عدد مرضى الضغط والسكري وما هي الأدوية المطلوبة لهم؟"
+
+How many patients have hypertension and diabetes, and what medications do they need?
+
+أسئلة خبير المأوى والسكن (ShelterExpert)
+
+"كم عدد العائلات القاطنة في الخيام والمخيمات؟"
+
+How many families are living in tents and displacement camps?
+
+"اعرض لي تفاصيل الأسر المتواجدة في مراكز الإيواء والمدارس."
+
+Display the details of families located in shelter centers and schools.
+
+"ما هي حالة المأوى والسكن للنازحين؟"
+
+What is the current shelter and housing condition for IDPs?
+
+"كم عدد الأسر التي تسكن في منازل بالإيجار أو الاستضافة؟"
+
+How many families are living in rented housing or host families?
+
+"اعرض لي الملاحظات الميدانية للعائلات المقيمة في الخيام."
+
+Show me the field notes for families residing in tents.
+
+"كم عدد العائلات المتواجدة في مراكز الإيواء؟"
+
+How many families are residing in shelter centers?
+
+"ما هي أبرز احتياجات الأسر المتواجدة في المدارس ومراكز الإيواء؟"
+
+What are the primary needs of families staying in schools and shelter centers?
+
+أسئلة الخبير الجغرافي والكثافة (GeographicExpert)
+
+"ما هو التوزيع الجغرافي للنازحين حسب المحافظات؟"
+
+What is the geographical distribution of IDPs by governorate?
+
+"كم عدد العائلات المسجلة في المنطقة الوسطى (المغازي، النصيرات، البريج)؟"
+
+How many families are registered in the Middle Area (Al-Maghazi, Nuseirat, Al-Bureij)?
+
+"أين تتركز أعلى كثافة للنازحين في الجنوب؟"
+
+Where is the highest concentration/density of IDPs located in the South?
+
+أسئلة خبير الهشاشة والحالات الخاصة (VulnerabilityExpert)
+
+"هل يوجد كبار سن أو حالات إعاقة مسجلة في الميدان؟"
+
+Are there any elderly people or disability cases registered in the field?
+
+"كم عدد حالات ذوي الاحتياجات الخاصة وما هي طلباتهم؟"
+
+How many cases of people with special needs are recorded, and what are their requests?
+
+أسئلة المنسق الشامل والتوجيه الذكي (Orchestrator)
+
+"اعرض لي حصرًا شاملًا لذوي الاحتياجات الخاصة والوفيات."
+
+"Provide a report on families of martyrs, fatalities, and loss of breadwinner."
+
+"كم عدد المرضى الذين يحتاجون إلى أدوية ضغط وسكري؟"
+
+How many patients require hypertension and diabetes medications?
+
+"ما هي أبرز احتياجات العائلات المقيمة في المدارس؟"
+
+What are the most prominent needs of families residing in schools?
+
+
+

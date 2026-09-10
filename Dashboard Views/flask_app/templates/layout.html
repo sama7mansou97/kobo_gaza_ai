@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar" dir="rtl" id="htmlTag">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaza Relief AI System</title>
+    <title data-i18n="system_title">Gaza Relief AI System</title>
     <!-- خط Tajawal -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     
     <!-- Bootstrap RTL & FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" id="bootstrapCss" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <!-- Swiper CSS -->
@@ -30,10 +29,16 @@
             </a>
             
             <nav class="d-flex align-items-center gap-3">
-                <a href="/" class="nav-link-item active">الرئيسية</a>
-                <a href="/resume" class="btn-data-view">
-                    <i class="fa-solid fa-database me-1"></i> السجل الشامل للبيانات
+                <a href="/" class="nav-link-item active" id="navHome" data-i18n="nav_home">الرئيسية</a>
+                <a href="/resume" class="btn-data-view" id="navRecords">
+                    <i class="fa-solid fa-database me-1"></i> <span id="navRecordsText" data-i18n="nav_records">السجل الشامل للبيانات</span>
                 </a>
+
+                <!-- زر تبديل اللغة (English / العربية) -->
+                <button type="button" class="btn btn-outline-primary rounded-pill px-3 py-1 fs-7 fw-bold d-flex align-items-center gap-2" id="langToggleBtn" onclick="toggleLanguage()">
+                    <i class="fa-solid fa-globe"></i>
+                    <span id="langBtnText">English</span>
+                </button>
             </nav>
         </div>
     </header>
@@ -49,22 +54,22 @@
                 <div class="col-lg-5">
                     <div class="d-flex align-items-center gap-3 mb-3">
                         <img src="/static/images/logo.png" alt="Logo" class="footer-logo-img">
-                        <h5 class="fw-bold mb-0 text-white">Gaza Relief AI System</h5>
+                        <h5 class="fw-bold mb-0 text-white" data-i18n="system_title">Gaza Relief AI System</h5>
                     </div>
-                    <p class="footer-desc">
+                    <p class="footer-desc" id="footerDesc" data-i18n="footer_desc">
                         منظومة إغاثية ذكية مدعومة بوكلاء الذكاء الاصطناعي (SPOCS AI Agents) ترتبط مباشرة ببيانات KoboToolbox الميدانية لرصد وتحليل احتياجات الأسر النازحة والمتضررة في قطاع غزة، وتسريع اتخاذ القرار الإغاثي بشفافية ودقة عالية.
                     </p>
                 </div>
                 <div class="col-lg-3 offset-lg-1">
-                    <h6 class="fw-bold text-white mb-3"><i class="fa-solid fa-link brand-accent me-2"></i>روابط سريعة</h6>
+                    <h6 class="fw-bold text-white mb-3"><i class="fa-solid fa-link brand-accent me-2"></i><span id="footerLinksTitle" data-i18n="quick_links">روابط سريعة</span></h6>
                     <ul class="list-unstyled footer-links">
-                        <li><a href="/"><i class="fa-solid fa-angle-left me-2"></i>الرئيسية والمؤشرات</a></li>
-                        <li><a href="/resume"><i class="fa-solid fa-angle-left me-2"></i>جدول السجلات الميدانية</a></li>
-                        <li><a href="#about"><i class="fa-solid fa-angle-left me-2"></i>عن المنظومة الذكية</a></li>
+                        <li><a href="/"><i class="fa-solid fa-angle-left me-2"></i><span id="fLink1" data-i18n="link_home_stats">الرئيسية والمؤشرات</span></a></li>
+                        <li><a href="/resume"><i class="fa-solid fa-angle-left me-2"></i><span id="fLink2" data-i18n="link_records_table">جدول السجلات الميدانية</span></a></li>
+                        <li><a href="#about"><i class="fa-solid fa-angle-left me-2"></i><span id="fLink3" data-i18n="link_about_system">عن المنظومة الذكية</span></a></li>
                     </ul>
                 </div>
                 <div class="col-lg-3">
-                    <h6 class="fw-bold text-white mb-3"><i class="fa-solid fa-headset brand-accent me-2"></i>التواصل والدعم الميداني</h6>
+                    <h6 class="fw-bold text-white mb-3"><i class="fa-solid fa-headset brand-accent me-2"></i><span id="footerContactTitle" data-i18n="contact_support">التواصل والدعم الميداني</span></h6>
                     <div class="contact-card p-3 rounded-3">
                         <div class="d-flex align-items-center gap-2 mb-2 text-light">
                             <i class="fa-solid fa-phone text-success fs-5"></i>
@@ -78,7 +83,7 @@
                 </div>
             </div>
             <hr class="border-secondary my-4 opacity-25">
-            <div class="text-center text-muted fs-7">
+            <div class="text-center text-muted fs-7" id="footerCopyright" data-i18n="copyright">
                 جميع الحقوق محفوظة © 2026 - نظام Gaza Relief AI لإدارة وتنسيق الإغاثة الميدانية.
             </div>
         </div>
@@ -87,6 +92,85 @@
     <!-- Bootstrap & Swiper Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    
+    <!-- جافاسكريبت إدارة اللغة والترجمة الشاملة -->
+    <script>
+        let translations = {};
+
+        // جلب ملف الترجمة المباشر من مجلد static/translations
+        async function loadTranslations(lang) {
+            try {
+                const response = await fetch(`/static/translations/${lang}.json`);
+                if (!response.ok) {
+                    throw new Error(`HTTP status: ${response.status}`);
+                }
+                translations[lang] = await response.json();
+            } catch (error) {
+                console.error(`Could not load ${lang}.json from static/translations:`, error);
+            }
+        }
+
+        async function applyLanguage(lang) {
+            const html = document.getElementById('htmlTag');
+            const bootstrapCss = document.getElementById('bootstrapCss');
+            const langBtnText = document.getElementById('langBtnText');
+            
+            // تحميل الترجمة إذا لم تكن مخزنة في الذاكرة
+            if (!translations[lang]) {
+                await loadTranslations(lang);
+            }
+
+            // ضبط الاتجاه و Bootstrap والزر
+            if (lang === 'en') {
+                html.setAttribute('dir', 'ltr');
+                html.setAttribute('lang', 'en');
+                bootstrapCss.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css";
+                langBtnText.textContent = "العربية";
+            } else {
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
+                bootstrapCss.href = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css";
+                langBtnText.textContent = "English";
+            }
+
+            // تطبيق النصوص المترجمة على جميع العناصر التي تمتلك data-i18n
+            if (translations[lang]) {
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+                    const key = element.getAttribute('data-i18n');
+                    if (translations[lang][key]) {
+                        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                            if (element.hasAttribute('placeholder')) {
+                                element.setAttribute('placeholder', translations[lang][key]);
+                            }
+                        } else {
+                            element.innerHTML = translations[lang][key];
+                        }
+                    }
+                });
+
+                // ترجمة نصوص الـ Placeholder المحددة بخاصية data-i18n-placeholder
+                document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                    const key = element.getAttribute('data-i18n-placeholder');
+                    if (translations[lang][key]) {
+                        element.setAttribute('placeholder', translations[lang][key]);
+                    }
+                });
+            }
+        }
+
+        function toggleLanguage() {
+            const currentLang = localStorage.getItem('site_lang') || 'ar';
+            const newLang = currentLang === 'ar' ? 'en' : 'ar';
+            localStorage.setItem('site_lang', newLang);
+            applyLanguage(newLang);
+        }
+
+        // تشغيل اللغة المحفوظة تلقائياً عند تحميل الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('site_lang') || 'ar';
+            applyLanguage(savedLang);
+        });
+    </script>
     {% block scripts %}{% endblock %}
 </body>
 </html>

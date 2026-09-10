@@ -9,18 +9,18 @@
                 <i class="fa-solid fa-address-book fs-3"></i>
             </div>
             <div>
-                <h4 class="fw-bold text-dark mb-1">السجل الشامل لبيانات النازحين</h4>
-                <p class="text-muted fs-7 mb-0">قاعدة بيانات ميدانية موحدة ترتبط مباشرة مع KoboToolbox</p>
+                <h4 class="fw-bold text-dark mb-1" data-i18n="resume_header_title">السجل الشامل لبيانات النازحين</h4>
+                <p class="text-muted fs-7 mb-0" data-i18n="resume_header_desc">قاعدة بيانات ميدانية موحدة ترتبط مباشرة مع KoboToolbox</p>
             </div>
         </div>
         
         <div class="d-flex align-items-center gap-3">
             <div class="stat-pill bg-light border px-3 py-2 rounded-3 text-center">
-                <span class="text-muted fs-8 d-block">إجمالي السجلات</span>
+                <span class="text-muted fs-8 d-block" data-i18n="total_records">إجمالي السجلات</span>
                 <span class="fw-bold fs-5 text-dark" id="totalRecordsCount">{{ records|length }}</span>
             </div>
             <a href="/" class="btn btn-outline-secondary rounded-pill px-3">
-                <i class="fa-solid fa-arrow-right me-1"></i> العودة للمؤشرات
+                <i class="fa-solid fa-arrow-right me-1"></i> <span data-i18n="btn_back_indicators">العودة للمؤشرات</span>
             </a>
         </div>
     </div>
@@ -29,12 +29,12 @@
     <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
         <div class="card-header bg-white p-3 border-bottom d-flex flex-wrap align-items-center justify-content-between gap-3">
             <div class="fw-bold text-secondary">
-                <i class="fa-solid fa-list-check me-2 text-primary"></i>بيانات الأسر المسجلة
+                <i class="fa-solid fa-list-check me-2 text-primary"></i><span data-i18n="table_card_title">بيانات الأسر المسجلة</span>
             </div>
             
             <div class="search-box-custom">
                 <i class="fa-solid fa-magnifying-glass search-icon text-muted"></i>
-                <input type="text" id="searchInput" class="form-control rounded-pill ps-5" placeholder="ابحث باسم رب الأسرة، الهوية، الهاتف، أو المنطقة...">
+                <input type="text" id="searchInput" class="form-control rounded-pill ps-5" data-i18n-placeholder="search_placeholder" placeholder="ابحث باسم رب الأسرة، الهوية، الهاتف، أو المنطقة...">
             </div>
         </div>
 
@@ -43,12 +43,12 @@
             <table class="table table-hover align-middle mb-0 custom-table" id="recordsTable">
                 <thead class="table-light sticky-top">
                     <tr>
-                        <th class="text-center" width="60">#</th>
-                        <th>رب الأسرة</th>
-                        <th>رقم الهوية</th>
-                        <th>الهاتف</th>
-                        <th>المحافظة والمنطقة</th>
-                        <th>نوع الإيواء</th>
+                        <th class="text-center" width="60" data-i18n="th_num">#</th>
+                        <th data-i18n="th_head_name">رب الأسرة</th>
+                        <th data-i18n="th_national_id">رقم الهوية</th>
+                        <th data-i18n="th_phone">الهاتف</th>
+                        <th data-i18n="th_gov_area">المحافظة والمنطقة</th>
+                        <th data-i18n="th_shelter_type">نوع الإيواء</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -76,11 +76,11 @@
                                 {% set gov = item.get('governorate', item.get('gov', '')) %}
                                 {% set area = item.get('area_name', item.get('detailed_address', item.get('detailed_address_001', item.get('area', '')))) %}
                                 
-                                {% if 'gaza' in gov %}مدينة غزة
-                                {% elif 'north' in gov %}شمال غزة
-                                {% elif 'deir' in gov %}دير البلح
-                                {% elif 'khanyounis' in gov or 'khan' in gov %}خان يونس
-                                {% elif 'rafah' in gov %}رفح
+                                {% if 'gaza' in gov %}<span data-i18n="gov_gaza">مدينة غزة</span>
+                                {% elif 'north' in gov %}<span data-i18n="gov_north">شمال غزة</span>
+                                {% elif 'deir' in gov %}<span data-i18n="gov_deir">دير البلح</span>
+                                {% elif 'khanyounis' in gov or 'khan' in gov %}<span data-i18n="gov_khanyounis">خان يونس</span>
+                                {% elif 'rafah' in gov %}<span data-i18n="gov_rafah">رفح</span>
                                 {% else %}{{ gov if gov else 'غزة' }}{% endif %}
                                 <span class="text-muted opacity-50 px-1">/</span>
                                 {% if 'nuseirat' in area %}مخيم النصيرات
@@ -92,7 +92,7 @@
                                 {% elif 'zaytoun' in area %}الزيتون
                                 {% elif 'remal' in area %}الرمال
                                 {% elif 'amal' in area %}حي الأمل
-                                {% elif 'center' in area %}وسط المدينة
+                                {% elif 'center' in area %}<span data-i18n="area_center">وسط المدينة</span>
                                 {% elif 'sultan' in area %}تل السلطان
                                 {% elif 'qarara' in area %}القرارة
                                 {% else %}{{ area if area else 'المركز' }}{% endif %}
@@ -103,27 +103,27 @@
                             {% set shelter = item.get('shelter_location_type', item.get('shelter_type', item.get('housing_type', '')))|string %}
                             {% if 'camp' in shelter or 'mukhayam' in shelter or 'displacement' in shelter %}
                                 <span class="status-badge bg-success-soft text-success">
-                                    <i class="fa-solid fa-campground me-1"></i> مخيم نازحين
+                                    <i class="fa-solid fa-campground me-1"></i> <span data-i18n="badge_camp">مخيم نازحين</span>
                                 </span>
                             {% elif 'shelter' in shelter or 'center' in shelter or 'school' in shelter %}
                                 <span class="status-badge bg-warning-soft text-warning-dark">
-                                    <i class="fa-solid fa-school me-1"></i> مركز إيواء
+                                    <i class="fa-solid fa-school me-1"></i> <span data-i18n="badge_shelter">مركز إيواء</span>
                                 </span>
                             {% elif 'rent' in shelter or 'apartment' in shelter %}
                                 <span class="status-badge bg-info-soft text-info">
-                                    <i class="fa-solid fa-key me-1"></i> شقة مستأجرة
+                                    <i class="fa-solid fa-key me-1"></i> <span data-i18n="badge_rent">شقة مستأجرة</span>
                                 </span>
                             {% elif 'host' in shelter %}
                                 <span class="status-badge bg-primary-soft text-primary">
-                                    <i class="fa-solid fa-handshake me-1"></i> استضافة
+                                    <i class="fa-solid fa-handshake me-1"></i> <span data-i18n="badge_host">استضافة</span>
                                 </span>
                             {% elif 'damaged' in shelter %}
                                 <span class="status-badge bg-danger-soft text-danger">
-                                    <i class="fa-solid fa-house-chimney-crack me-1"></i> منزل متضرر
+                                    <i class="fa-solid fa-house-chimney-crack me-1"></i> <span data-i18n="badge_damaged">منزل متضرر</span>
                                 </span>
                             {% else %}
                                 <span class="status-badge bg-secondary-soft text-secondary">
-                                    <i class="fa-solid fa-house me-1"></i> سكن آخر
+                                    <i class="fa-solid fa-house me-1"></i> <span data-i18n="badge_other">سكن آخر</span>
                                 </span>
                             {% endif %}
                         </td>
@@ -137,7 +137,8 @@
         <!-- زر عرض المزيد من السجلات -->
         <div class="card-footer bg-white text-center py-3 border-top" id="showMoreFooter">
             <button type="button" id="loadMoreBtn" class="btn btn-primary rounded-pill px-4 shadow-sm fw-bold">
-                <i class="fa-solid fa-angle-down me-2"></i> عرض باقي السجلات ({{ records|length - 5 }} إضافية)
+                <i class="fa-solid fa-angle-down me-2"></i> 
+                <span data-i18n="btn_show_more">عرض باقي السجلات</span> ({{ records|length - 5 }} <span data-i18n="btn_extra">إضافية</span>)
             </button>
         </div>
         {% endif %}
@@ -149,11 +150,11 @@
             <div class="d-flex align-items-center gap-2">
                 <i class="fa-solid fa-brain fs-4"></i>
                 <div>
-                    <h5 class="fw-bold mb-0 fs-6">مساعد Gaza Relief AI لتحليل البيانات</h5>
-                    <small class="text-white-50 fs-8">مدمج مباشرة لقراءة وتحليل السجل الشامل</small>
+                    <h5 class="fw-bold mb-0 fs-6" data-i18n="chat_card_title">مساعد Gaza Relief AI لتحليل البيانات</h5>
+                    <small class="text-white-50 fs-8" data-i18n="chat_card_subtitle">مدمج مباشرة لقراءة وتحليل السجل الشامل</small>
                 </div>
             </div>
-            <span class="badge bg-white text-primary rounded-pill px-3 py-2 fs-8 fw-bold">متصل بالسجلات حياً</span>
+            <span class="badge bg-white text-primary rounded-pill px-3 py-2 fs-8 fw-bold" data-i18n="chat_connected_badge">متصل بالسجلات حياً</span>
         </div>
         
         <div class="card-body p-4 bg-light">
@@ -161,15 +162,15 @@
                 <div class="text-start mb-3">
                     <div class="bg-light p-3 rounded-3 d-inline-block text-dark border">
                         <i class="fa-solid fa-robot text-primary me-2"></i>
-                        مرحباً بك! أنا المساعد الذكي لنظام Gaza Relief AI. يمكنك استفساري مباشرة عن إحصائيات النازحين، توزيع الاحتياجات، أو الاستعلام عن أسر معينة من الواقع الميداني.
+                        <span data-i18n="chat_welcome_msg">مرحباً بك! أنا المساعد الذكي لنظام Gaza Relief AI. يمكنك استفساري مباشرة عن إحصائيات النازحين، توزيع الاحتياجات، أو الاستعلام عن أسر معينة من الواقع الميداني.</span>
                     </div>
                 </div>
             </div>
 
             <form id="inline-chat-form" class="d-flex gap-2">
-                <input type="text" id="inline-chat-input" class="form-control form-control-lg rounded-pill px-4 fs-7" placeholder="اكتب سؤالك هنا (مثال: كم عدد الأسر المتواجدة في المخيمات؟)..." required>
+                <input type="text" id="inline-chat-input" class="form-control form-control-lg rounded-pill px-4 fs-7" data-i18n-placeholder="chat_placeholder" placeholder="اكتب سؤالك هنا (مثال: كم عدد الأسر المتواجدة في المخيمات؟)..." required>
                 <button type="submit" class="btn btn-primary rounded-pill px-4 fw-bold d-flex align-items-center gap-2">
-                    <span>إرسال</span>
+                    <span data-i18n="btn_send">إرسال</span>
                     <i class="fa-solid fa-paper-plane"></i>
                 </button>
             </form>
@@ -259,10 +260,15 @@ document.getElementById('inline-chat-form').addEventListener('submit', async (e)
     messagesBox.scrollTop = messagesBox.scrollHeight;
 
     const loadingId = 'loading-' + Date.now();
+    
+    // دعم ترجمة رسالة التحميل
+    const currentLang = localStorage.getItem('preferred_language') || 'ar';
+    const loadingText = currentLang === 'en' ? 'Analyzing registry data...' : 'جاري تحليل بيانات السجل...';
+    
     messagesBox.innerHTML += `
         <div class="text-start mb-3" id="${loadingId}">
             <div class="bg-light p-3 rounded-3 d-inline-block text-muted border fs-8">
-                <i class="fa-solid fa-spinner fa-spin me-2 text-primary"></i> جاري تحليل بيانات السجل...
+                <i class="fa-solid fa-spinner fa-spin me-2 text-primary"></i> ${loadingText}
             </div>
         </div>`;
     messagesBox.scrollTop = messagesBox.scrollHeight;
@@ -284,10 +290,12 @@ document.getElementById('inline-chat-form').addEventListener('submit', async (e)
             </div>`;
     } catch (err) {
         document.getElementById(loadingId).remove();
+        
+        const errorText = currentLang === 'en' ? 'An error occurred while connecting to AI.' : 'حدث خطأ أثناء الاتصال بالذكاء الاصطناعي.';
         messagesBox.innerHTML += `
             <div class="text-start mb-3">
                 <div class="bg-danger-soft text-danger p-3 rounded-3 d-inline-block border">
-                    حدث خطأ أثناء الاتصال بالذكاء الاصطناعي.
+                    ${errorText}
                 </div>
             </div>`;
     }
