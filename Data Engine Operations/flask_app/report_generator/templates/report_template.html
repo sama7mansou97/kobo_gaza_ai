@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>تقرير المستفيد الشامل</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; color: #333; }
+        .header { text-align: center; border-bottom: 2px solid #1E3A8A; padding-bottom: 10px; margin-bottom: 20px; }
+        .header h2 { color: #1E3A8A; margin: 0; }
+        .header p { color: #666; margin: 5px 0 0 0; }
+        .section-title { color: #0F766E; border-bottom: 1px solid #0F766E; padding-bottom: 5px; margin-top: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { border: 1px solid #DDD; padding: 8px; text-align: right; }
+        th { background-color: #F3F4F6; color: #1E3A8A; }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h2>📋 التقرير الموحد للمستفيد</h2>
+        <p>نظام الإغاثة والدعم النفسي - قطاع غزة</p>
+    </div>
+
+    <h3 class="section-title">👤 البيانات الشخصية والموقع</h3>
+    <table>
+        <tr><th>الاسم الرباعي:</th><td>{{ head_name }}</td></tr>
+        <tr><th>رقم الهوية:</th><td><code>{{ national_id }}</code></td></tr>
+        <tr><th>رقم الهاتف:</th><td>{{ phone_number }}</td></tr>
+        <tr><th>المحافظة والمنطقة:</th><td>{{ governorate }}</td></tr>
+        <tr><th>مكان الإيواء:</th><td>{{ shelter_type }}</td></tr>
+    </table>
+
+    {% if assessments %}
+    <h3 class="section-title">🩺 التقييمات النفسية</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>التشخيص</th>
+                <th>درجة الشدة</th>
+                <th>الحالة</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ass in assessments %}
+            <tr>
+                <td>{{ ass.diagnostic_summary }}</td>
+                <td>{{ ass.ptsd_severity }}</td>
+                <td>{{ ass.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</body>
+</html>
