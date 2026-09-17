@@ -55,6 +55,9 @@ python3 app.py
 cd AI_Agents_Module
 python3 app.py
 
+cd AI_Agents_Module
+python3 app.py
+
   أسئلة لخبير الهشاشة (VulnerabilityExpert):
 
 "كم عدد حالات ذوي الاحتياجات الخاصة وما هي طلباتهم؟"

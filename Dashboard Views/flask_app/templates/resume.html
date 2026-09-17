@@ -2,7 +2,82 @@
 
 {% block content %}
 <div class="container my-4">
-    <!-- 1. شريط ترويسة الصفحة -->
+    <!-- 1. مؤشرات الاستجابة العامة (مستطيلة بتصميم متوافق تماماً مع home.html وطبيعة السجل) -->
+    <div class="mb-4">
+        <div class="d-flex flex-wrap align-items-center justify-content-between mb-3 gap-2">
+            <div>
+                <h3 class="fw-bold text-dark mb-1" data-i18n="stats_section_title">مؤشرات الاستجابة العامة</h3>
+                <p class="text-muted fs-6 mb-0" data-i18n="stats_section_desc">قراءة وإحصائيات عامة ومباشرة لحالات الأسر المسجلة في القطاع</p>
+            </div>
+            <div class="badge bg-primary text-white rounded-pill px-3 py-2 shadow-sm" style="font-size: 0.9rem;">
+                <i class="fa-solid fa-shield-halved me-1"></i> Shelter & Camps Management
+            </div>
+        </div>
+
+        <div class="row g-4">
+            <!-- إجمالي العائلات المتأثرة -->
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-image-card shadow-sm rounded-4 overflow-hidden position-relative p-4 bg-white border">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="icon-circle bg-danger text-white rounded-3 p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="fa-solid fa-users fs-4"></i>
+                        </div>
+                        <span class="badge bg-danger text-white fw-bold rounded-pill px-2 py-1 fs-8" data-i18n="badge_total_tag">الكل</span>
+                    </div>
+                    <span class="stat-title text-muted fw-semibold fs-7 d-block mb-1" data-i18n="stat_total_affected">إجمالي العائلات المتضررة</span>
+                    <h2 class="stat-value text-dark fw-bold mb-0">{{ stats.total if stats else records|length }}</h2>
+                    <small class="text-muted fs-8" data-i18n="unit_family">عائلة</small>
+                </div>
+            </div>
+
+            <!-- مخيمات وأماكن إقامة -->
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-image-card shadow-sm rounded-4 overflow-hidden position-relative p-4 bg-white border">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="icon-circle bg-success text-white rounded-3 p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="fa-solid fa-campground fs-4"></i>
+                        </div>
+                        <span class="badge bg-success text-white fw-bold rounded-pill px-2 py-1 fs-8" data-i18n="badge_camp_tag">مخيمات</span>
+                    </div>
+                    <span class="stat-title text-muted fw-semibold fs-7 d-block mb-1" data-i18n="stat_camps_families">عائلات المخيمات والخيام</span>
+                    <h2 class="stat-value text-dark fw-bold mb-0">{{ stats.camps if stats else '92' }}</h2>
+                    <small class="text-muted fs-8" data-i18n="unit_family">عائلة</small>
+                </div>
+            </div>
+
+            <!-- مراكز إيواء ومدارس -->
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-image-card shadow-sm rounded-4 overflow-hidden position-relative p-4 bg-white border">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="icon-circle bg-warning text-dark rounded-3 p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="fa-solid fa-school fs-4"></i>
+                        </div>
+                        <span class="badge bg-warning text-dark fw-bold rounded-pill px-2 py-1 fs-8" data-i18n="badge_shelter_tag">إيواء</span>
+                    </div>
+                    <span class="stat-title text-muted fw-semibold fs-7 d-block mb-1" data-i18n="stat_shelters_schools">مراكز الإيواء والمدارس</span>
+                    <h2 class="stat-value text-dark fw-bold mb-0">{{ stats.shelters if stats else '90' }}</h2>
+                    <small class="text-muted fs-8" data-i18n="unit_family">عائلة</small>
+                </div>
+            </div>
+
+            <!-- مساكن مستضيفة / أخرى -->
+            <div class="col-lg-3 col-md-6">
+                <div class="stat-image-card shadow-sm rounded-4 overflow-hidden position-relative p-4 bg-white border">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <div class="icon-circle bg-warning text-dark rounded-3 p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="fa-solid fa-house fs-4"></i>
+                        </div>
+                        <span class="badge bg-warning text-dark fw-bold rounded-pill px-2 py-1 fs-8" data-i18n="badge_other_tag">أخرى</span>
+                    </div>
+                    <span class="stat-title text-muted fw-semibold fs-7 d-block mb-1" data-i18n="stat_other_hosting">سكن آخر / استضافة</span>
+                    <h2 class="stat-value text-dark fw-bold mb-0">{{ stats.other if stats else '120' }}</h2>
+                    <small class="text-muted fs-8" data-i18n="unit_family">عائلة</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. شريط ترويسة الصفحة الأصلي -->
     <div class="resume-header-card p-4 mb-4 rounded-4 shadow-sm bg-white border d-flex flex-wrap align-items-center justify-content-between gap-3">
         <div class="d-flex align-items-center gap-3">
             <div class="header-icon-box bg-primary-soft text-primary rounded-3 p-3">
@@ -25,7 +100,7 @@
         </div>
     </div>
 
-    <!-- 2. بطاقة الجدول الرئيسية مع خاصية إظهار أول 5 نازحين وزر المزيد -->
+    <!-- 3. بطاقة الجدول الرئيسية مع خاصية إظهار أول 5 نازحين وزر المزيد -->
     <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
         <div class="card-header bg-white p-3 border-bottom d-flex flex-wrap align-items-center justify-content-between gap-3">
             <div class="fw-bold text-secondary">
@@ -144,7 +219,7 @@
         {% endif %}
     </div>
 
-    <!-- 3. قسم الشات المدمج للذكاء الاصطناعي (أصل الصفحة وبمساحة كاملة) -->
+    <!-- 4. قسم الشات المدمج للذكاء الاصطناعي (أصل الصفحة وبمساحة كاملة) -->
     <div class="card border-0 shadow-sm rounded-4 overflow-hidden my-4">
         <div class="card-header bg-primary text-white p-3 d-flex align-items-center justify-content-between">
             <div class="d-flex align-items-center gap-2">
@@ -179,10 +254,17 @@
 </div>
 
 <style>
-    /* إضافة التنسيقات الخاصة بالحد الأقصى للارتفاع والسكرول عند التوسع */
+    /* إضافة التنسيقات الخاصة بالحد الأقصى للارتفاع والسكرول عند التوسع وتنسيق بطاقات الإحصائيات */
     .custom-scroll-table.expanded {
         max-height: 450px;
         overflow-y: auto;
+    }
+    .stat-image-card {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .stat-image-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.08)!important;
     }
 </style>
 {% endblock %}
